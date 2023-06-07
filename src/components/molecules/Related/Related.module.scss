@@ -1,0 +1,61 @@
+@import '../../../style/variables.scss';
+
+.related {
+  background-color: $primary-color;
+
+  .title {
+    padding: 3rem 0;
+    text-align: center;
+    line-height: 2rem;
+    font-size: 2rem;
+    font-weight: normal;
+    color: $secondary-color;
+  }
+
+  .list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    padding: 0 .5rem 3rem;
+  }
+  
+  .item {
+    width: 12rem;
+    height: 24rem;
+    margin: 0 .25rem .5rem;
+  
+    &_new {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 2;
+      padding: .5rem;
+      font-size: .75rem;
+      line-height: .75rem;
+    }
+  
+    &_figcaption {
+  
+      strong {
+        padding-top: .5rem;
+      }
+  
+      p {
+        padding: 0 0 .5rem;
+        line-height: 1rem;
+        font-size: .75rem;
+      }
+    }
+  
+    &_button {
+      padding: .75rem;
+      font-size: .75rem;
+    }
+  }
+
+  .empty {
+    padding-bottom: 3rem;
+    text-align: center;
+    color: $secondary-color;
+  }
+}

@@ -1,0 +1,10 @@
+@import '../../../../style/variables.scss';
+
+.link {
+  display: block;
+  background-color: transparent;
+  border: 0;
+  text-align: left;
+  text-transform: uppercase;
+  font-family: $primary-font;
+}

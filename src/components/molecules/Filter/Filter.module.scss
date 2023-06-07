@@ -1,0 +1,10 @@
+@import '../../../style/variables.scss';
+
+.filter {
+  margin: 2rem 0 1.5rem;
+  text-align: center;
+  
+  .list {
+    list-style-type: none;
+  }
+}

@@ -1,0 +1,60 @@
+@import '../../style/variables.scss';
+
+.page {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  .main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    padding-top: 70px;
+    background-color: $secondary-color;
+  }
+
+  .inner {
+    max-width: 700px;
+    width: 100%;
+    margin: 3rem auto;
+    padding: 0 1rem;
+  }
+
+  .title {
+    padding: 2rem 0;
+    background-color: $primary-color;
+    text-align: center;
+    line-height: 2.5rem;
+    font-size: 2.5rem;
+    font-weight: normal;
+    color: $secondary-color;
+  }
+
+  .subtitle {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    line-height: 1.5rem;
+    font-size: 1.5rem;
+  }
+
+  .list {
+    list-style-type: none;
+  }
+
+  .item {
+    display: inline-block;
+    vertical-align: top;
+  }
+  
+  .link {
+    padding: 1rem;
+    font-size: 1rem;
+    color: $primary-color;
+  }
+}

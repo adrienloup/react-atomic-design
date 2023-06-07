@@ -1,0 +1,27 @@
+@import '../../style/variables.scss';
+
+.page {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  .main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    padding-top: 70px;
+    background-color: $primary-color;
+  }
+
+  .title {
+    padding: 1rem;
+    font-weight: normal;
+    color: $secondary-color;
+  }
+}

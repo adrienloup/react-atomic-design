@@ -1,0 +1,83 @@
+@import '../../../style/variables.scss';
+
+.transition {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 6;
+
+  svg {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  path {
+    stroke: $tertiary-color;
+  }
+
+  .slide {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    transition: width .25s $easeInOutCirc;
+  }
+
+  .slide1 {
+    left: 0;
+    z-index: 1;
+  }
+
+  .slide2 {
+    right: 0;
+    z-index: 2;
+  }
+
+  .slide3 {
+    left: 0;
+    z-index: 3;
+  }
+
+  &.start {
+    top: 0;
+
+    .slide2 {
+      transition-delay: .2s;
+    }
+  
+    .slide3 {
+      transition-delay: .6s;
+    }
+  
+    .slide {
+      width: 100%;
+    }
+  }
+
+  &.end {
+    top: 0;
+
+    .slide1 {
+      transition-delay: .6s;
+    }
+
+    .slide2 {
+      transition-delay: .2s;
+    }
+
+    .slide {
+      width: 0%;
+    }
+  }
+
+  &.done {
+    top: -100%;
+
+    .slide {
+      width: 0%;
+    }
+  }
+}

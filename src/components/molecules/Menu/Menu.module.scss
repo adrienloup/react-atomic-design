@@ -1,0 +1,114 @@
+@import '../../../style/variables.scss';
+
+.menu {
+  position: relative;
+
+  .button {
+    position: relative;
+    z-index: 2;
+    width: 50px;
+    height: 50px;
+    margin: 10px 1rem 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $primary-color;
+    border-radius: 50%;
+    border: 0;
+    cursor: pointer;
+
+    &::before,
+    &::after {
+      content: "";
+      width: 18px;
+      height: 2px;
+      margin: 4px 0;
+      background-color: $secondary-color;
+    }
+  }
+
+  .navigation {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 10px;
+    right: 1rem;
+    z-index: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: $primary-color;
+    border-radius: 1.5rem;
+    transition-property: width, height;
+    transition-duration: .3s;
+    transition-timing-function: $easeOutQuart;
+    transition-delay: .2s;
+    will-change: width, height;
+  }
+
+  .list {
+    list-style-type: none;
+    padding: 0 2rem;
+    opacity: 0;
+    transition: opacity .4s $easeInOutCirc 0s;
+    will-change: opacity;
+  }
+
+  .item {
+    overflow: hidden;
+    position: relative;
+  
+    &:nth-last-child(-n + 3) {
+      margin-top: 3vh;
+    }
+  }
+
+  .link {
+    display: block;
+    position: relative;
+    padding: 1vh 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $secondary-color;
+    transform: translate3d(0, 100%, 0);
+    transition: transform 0s $easeOutExpo 0s;
+    will-change: transform;
+  }
+
+  &.actived {
+
+    .navigation {
+      width: 20rem;
+      height: calc(100vh - 20px);
+      transition-duration: .4s;
+      transition-delay: 0s;
+
+      @media screen and (max-width: $mobile-portrait) {
+        width: calc(100vw - 30px);
+      }
+
+      @media screen and (max-height: $mobile-landscape) {
+        width: calc(100vw - 30px);
+      }
+    }
+
+    .list {
+      opacity: 1;
+      transition-delay: .4s;
+    }
+
+    .link {
+      transform: translate3d(0, 0, 0);
+      transition: transform .4s $easeInOutCirc;
+    }
+    
+    @for $i from 1 through 7 {
+      .item:nth-child(#{$i}) .link {
+        transition-delay: calc($i*100ms + 400ms);
+      }
+    }
+  }
+}

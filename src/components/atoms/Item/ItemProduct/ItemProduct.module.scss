@@ -1,0 +1,39 @@
+@import '../../../../style/variables.scss';
+
+.item {
+  display: flex;
+  flex-direction: column;
+  padding: .5rem;
+  background-color: $secondary-color;
+
+  &_image {
+    flex: 1;
+    position: relative;
+    
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      height: 100%;
+      width: 100%;
+      -o-object-fit: cover;
+      object-fit: cover;
+    }
+  }
+
+  &_figcaption {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &_button {
+    margin-top: auto;
+    background-color: $primary-color;
+    border: 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: $primary-font;
+    color: $secondary-color;
+  }
+}

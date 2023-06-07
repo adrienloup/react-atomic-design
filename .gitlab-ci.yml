@@ -1,0 +1,38 @@
+image: node:lts
+
+stages:
+  - package
+  - deploy
+
+before_script:
+  - apt-get update -qy
+  - apt-get install -y lftp
+
+build:
+  stage: package
+  script:
+    - npm ci
+    - npm run build
+  artifacts:
+    name: "$CI_JOB_NAME"
+    paths:
+      - dist/
+  only:
+    - develop
+    - master
+  tags:
+    - builder
+    - env_ci
+    - exec_docker
+
+deploy:
+  stage: deploy
+  script:
+    - lftp -e "open ftp.cluster020.hosting.ovh.net; user $FTP_USERNAME $FTP_PASSWORD; mirror -X .* -X .*/ --reverse --verbose --delete dist/ /; bye"
+  dependencies:
+    - build
+  only:
+    - master
+  tags:
+    - env_ci
+    - exec_docker
